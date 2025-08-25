@@ -1,4 +1,3 @@
-# main.py
 import os
 import discord
 import asyncio
@@ -9,7 +8,6 @@ from dotenv import load_dotenv
 # --- Configuration ---
 load_dotenv()
 discord_bot_id = os.getenv("DISCORD_BOT_ID")
-# Replace 'YOUR_BOT_TOKEN' with your actual Discord bot token.
 BOT_TOKEN = discord_bot_id
 
 # Time interval in seconds to check the links.
@@ -28,7 +26,6 @@ TESTFLIGHT_LINKS = {
 FULL_TEXT = "This beta is full."
 
 # --- Bot Setup ---
-# We need specific "intents" for the bot to work with DMs and commands.
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -41,7 +38,6 @@ test_mode_users = set()
 bot = commands.Bot(command_prefix='testflight>', intents=intents, help_command=None)
 
 # --- Core Logic ---
-
 async def check_links_and_notify():
     """
     This is the main background task. It checks the links and DMs users
@@ -105,7 +101,6 @@ async def check_links_and_notify():
 
 
 # --- Bot Events & Commands ---
-
 @bot.event
 async def on_ready():
     """
